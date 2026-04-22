@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:ns0="http://www.ros.org/wiki/xacro" name="simulation">
+
+<ns0:include filename="$(find simulation_description)/urdf/materials.xacro" />
+<ns0:include filename="$(find simulation_description)/urdf/simulation.trans" />
+<ns0:include filename="$(find simulation_description)/urdf/simulation.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0 0.0 0.025" rpy="0 0 0" />
+    <mass value="62.8" />
+    <inertia ixx="0.850417" iyy="0.850417" izz="1.674667" ixy="0.0" iyz="0.0" ixz="0.0" />
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="Base_1">
+  <inertial>
+    <origin xyz="7.714115227794962e-05 -0.016125353329435533 0.07618934272722482" rpy="0 0 0" />
+    <mass value="21.712181229480198" />
+    <inertia ixx="0.075148" iyy="0.070424" izz="0.06322" ixy="5.7e-05" iyz="-0.000375" ixz="4.5e-05" />
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.05" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Base_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.05" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Base_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="Shoulder_1">
+  <inertial>
+    <origin xyz="-0.01270061290886219 7.509802672431287e-08 0.0948420907233187" rpy="0 0 0" />
+    <mass value="8.024271929562868" />
+    <inertia ixx="0.024772" iyy="0.02777" izz="0.009415" ixy="0.0" iyz="0.0" ixz="0.005565" />
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.012092 -0.2125" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Shoulder_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.012092 -0.2125" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Shoulder_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="Elbow_1">
+  <inertial>
+    <origin xyz="-0.05571235540853127 7.509803793756542e-08 0.10000000010851523" rpy="0 0 0" />
+    <mass value="12.100373929907606" />
+    <inertia ixx="0.078326" iyy="0.083452" izz="0.014801" ixy="-0.0" iyz="0.0" ixz="-0.0" />
+  </inertial>
+  <visual>
+    <origin xyz="0.074 0.012092 -0.3615" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Elbow_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0.074 0.012092 -0.3615" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Elbow_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="Elbow_2">
+  <inertial>
+    <origin xyz="0.05571235540853106 0.10000007520654146 1.1102230246251565e-14" rpy="0 0 0" />
+    <mass value="12.100373929907606" />
+    <inertia ixx="0.078326" iyy="0.014801" izz="0.083452" ixy="0.0" iyz="0.0" ixz="0.0" />
+  </inertial>
+  <visual>
+    <origin xyz="0.074 0.012092 -0.5615" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Elbow_2.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0.074 0.012092 -0.5615" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Elbow_2.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="Wrist_1">
+  <inertial>
+    <origin xyz="-0.05240924039380075 7.509802593674841e-08 0.020090759606199105" rpy="0 0 0" />
+    <mass value="5.055477786292251" />
+    <inertia ixx="0.006271" iyy="0.008503" izz="0.006271" ixy="0.0" iyz="0.0" ixz="0.002086" />
+  </inertial>
+  <visual>
+    <origin xyz="0.074 -0.187908 -0.5615" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Wrist_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0.074 -0.187908 -0.5615" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/Wrist_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="End_Effector_1">
+  <inertial>
+    <origin xyz="2.422560985149147e-08 -0.017981548373510237 0.06189134462475532" rpy="0 0 0" />
+    <mass value="7.804427026517193" />
+    <inertia ixx="0.018693" iyy="0.010177" izz="0.015468" ixy="-0.0" iyz="0.001489" ixz="0.0" />
+  </inertial>
+  <visual>
+    <origin xyz="0.1465 -0.187908 -0.634" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/End_Effector_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0.1465 -0.187908 -0.634" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/End_Effector_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<link name="rev_color_senser_v3_1">
+  <inertial>
+    <origin xyz="-0.004505090053347288 -0.03220761246025311 0.013229096568953103" rpy="0 0 0" />
+    <mass value="0.6971899959851771" />
+    <inertia ixx="0.000635" iyy="0.000698" izz="0.000765" ixy="6e-06" iyz="-4.3e-05" ixz="4.9e-05" />
+  </inertial>
+  <visual>
+    <origin xyz="0.1465 -0.090408 -0.7065" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/rev_color_senser_v3_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+    <material name="silver" />
+  </visual>
+  <collision>
+    <origin xyz="0.1465 -0.090408 -0.7065" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="meshes/rev_color_senser_v3_1.stl" scale="0.001 0.001 0.001" />
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 1" type="fixed">
+  <origin xyz="0.0 0.0 0.05" rpy="0 0 0" />
+  <parent link="base_link" />
+  <child link="Base_1" />
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="-0.0 -0.012092 0.1625" rpy="0 0 0" />
+  <parent link="Base_1" />
+  <child link="Shoulder_1" />
+  <axis xyz="0.0 0.0 1.0" />
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="-0.074 0.0 0.149" rpy="0 0 0" />
+  <parent link="Shoulder_1" />
+  <child link="Elbow_1" />
+  <axis xyz="-1.0 0.0 -0.0" />
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.0 0.0 0.2" rpy="0 0 0" />
+  <parent link="Elbow_1" />
+  <child link="Elbow_2" />
+  <axis xyz="1.0 -0.0 0.0" />
+</joint>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="0.0 0.2 0.0" rpy="0 0 0" />
+  <parent link="Elbow_2" />
+  <child link="Wrist_1" />
+  <axis xyz="-1.0 0.0 -0.0" />
+</joint>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="-0.0725 0.0 0.0725" rpy="0 0 0" />
+  <parent link="Wrist_1" />
+  <child link="End_Effector_1" />
+  <axis xyz="-0.0 0.0 1.0" />
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="0.0 -0.0975 0.0725" rpy="0 0 0" />
+  <parent link="End_Effector_1" />
+  <child link="rev_color_senser_v3_1" />
+  <axis xyz="-0.0 -1.0 0.0" />
+</joint>
+
+</robot>
