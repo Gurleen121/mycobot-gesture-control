@@ -1,0 +1,4 @@
+opencv-contrib-python>=4.0.0
+mediapipe>=0.10.0
+pybullet>=3.0.0
+numpy>=1.24.0
