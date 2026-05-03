@@ -8,10 +8,14 @@ at a fixed target zone, and returns home.
 Box identity is determined live by a phone camera running **ArUco marker detection** —
 shuffle the boxes and the robot still picks the right one.
 
-This simulation was developed alongside a hardware implementation on the real
-MyCobot 280 Pi. The simulation uses ArUco markers for box identification in a
-controlled environment; the hardware implementation was validated separately on
-the physical arm.
+This simulation was developed alongside a hardware implementation on the real MyCobot 280 Pi.
+See the [Hardware Implementation](#hardware-implementation) section below.
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green?logo=opencv)
+![PyBullet](https://img.shields.io/badge/PyBullet-3.x-orange)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10%2B-red)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
@@ -106,17 +110,22 @@ mycobot-gesture-control/
 ├── LICENSE
 ├── urdf/
 │   └── mycobot_280_pi.urdf  # Full 6-DOF robot description
-└── meshes/
-    ├── base_link.stl
-    ├── Base_1.stl
-    ├── Shoulder_1.stl
-    ├── Elbow_1.stl
-    ├── Elbow_2.stl
-    ├── Wrist_1.stl
-    ├── End_Effector_1.stl
-    ├── gripper_2.0_1.stl
-    ├── gripper_2.0_2.stl
-    └── rev_color_senser_v3_1.stl
+├── meshes/
+│   ├── base_link.stl
+│   ├── Base_1.stl
+│   ├── Shoulder_1.stl
+│   ├── Elbow_1.stl
+│   ├── Elbow_2.stl
+│   ├── Wrist_1.stl
+│   ├── End_Effector_1.stl
+│   ├── gripper_2.0_1.stl
+│   ├── gripper_2.0_2.stl
+│   └── rev_color_senser_v3_1.stl
+└── hardware/
+    ├── README.md            # Hardware setup and architecture
+    ├── talker.py            # Laptop: CV calibration + gesture sender
+    ├── listener.py          # Raspberry Pi: command receiver + arm controller
+    └── Hardware_video.mp4   # Live demo on real MyCobot 280 Pi
 ```
 
 ---
@@ -173,6 +182,19 @@ python3 run_simulation.py
 
 > Boxes can be placed in any left-to-right order — the ArUco scan remaps
 > the simulation automatically each time.
+
+---
+
+## Hardware Implementation
+
+The hardware phase runs on the **real MyCobot 280 Pi** connected via serial to its
+onboard Raspberry Pi. It uses a different CV approach suited to physical conditions:
+CLAHE contrast enhancement + Canny edge detection + Probabilistic Hough line counting
+to identify Roman numeral labels (I, II, III) on boxes during a 30-second calibration
+phase. The resulting finger→box map is sent over **UDP multicast** from the laptop
+to the Pi, which then executes pre-taught joint angle sequences on the real arm.
+
+→ Full details, architecture, and demo video: [`hardware/README.md`](hardware/README.md)
 
 ---
 
